@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Reto2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/Reto2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
