@@ -47,6 +47,7 @@ public class CalcBasicV extends javax.swing.JFrame {
         btnPrimo2 = new javax.swing.JButton();
         btnFibonacci = new javax.swing.JButton();
         btnFactorial = new javax.swing.JButton();
+        btnLogaritmos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -484,6 +485,22 @@ public class CalcBasicV extends javax.swing.JFrame {
         });
         jPanel1.add(btnFactorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 70, -1));
 
+        btnLogaritmos.setFont(new java.awt.Font("Courier New", 1, 10)); // NOI18N
+        btnLogaritmos.setForeground(new java.awt.Color(102, 255, 102));
+        btnLogaritmos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ButtonDark3_Signs.png"))); // NOI18N
+        btnLogaritmos.setText("Logaritmo");
+        btnLogaritmos.setBorder(null);
+        btnLogaritmos.setBorderPainted(false);
+        btnLogaritmos.setContentAreaFilled(false);
+        btnLogaritmos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnLogaritmos.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ButtonDark1.png"))); // NOI18N
+        btnLogaritmos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogaritmosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLogaritmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 70, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -674,8 +691,23 @@ public class CalcBasicV extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFibonacciActionPerformed
 
     private void btnFactorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactorialActionPerformed
-        // TODO add your handling code here:
+        String numeros = txtPantalla1.getText();
+
+        txtPantalla2.setText(String.valueOf(controller.factorial(Integer.valueOf(numeros))));
+        txtPantalla1.setText("");
     }//GEN-LAST:event_btnFactorialActionPerformed
+
+    private void btnLogaritmosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogaritmosActionPerformed
+        String resultado;
+        if (!txtPantalla1.getText().equals("")) {
+            memoria1 = txtPantalla1.getText();
+            signo = "log10";
+            txtPantalla1.setText("");
+            
+            resultado = controller.calculos(memoria1, "", signo);
+            txtPantalla2.setText(resultado);
+        }
+    }//GEN-LAST:event_btnLogaritmosActionPerformed
 
     public static void main(String args[]) {
 
@@ -702,6 +734,7 @@ public class CalcBasicV extends javax.swing.JFrame {
     public static javax.swing.JButton btnDividir1;
     public static javax.swing.JButton btnFactorial;
     public static javax.swing.JButton btnFibonacci;
+    public static javax.swing.JButton btnLogaritmos;
     public static javax.swing.JButton btnMultiplicar;
     public static javax.swing.JButton btnPerfecto;
     public static javax.swing.JButton btnPorcentaje;
